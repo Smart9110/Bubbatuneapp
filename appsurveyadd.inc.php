@@ -103,7 +103,7 @@
    if ($password1 != $password2)
       $baduser = 3;
 
-   $query = "SELECT * from apptunsurveys where email = '$email'";
+   $query = "SELECT * from appsubscribers where email = '$email'";
    $result = mysql_query($query);
    $rows = mysql_num_rows($result);
 
@@ -114,14 +114,14 @@
    {
       
 
-      $query = "INSERT INTO apptunsurveys ( id, qone, qtwo, qthree, qfour, qfive, qsix, " . 
+      $query = "INSERT INTO tunsurveys ( id, qone, qtwo, qthree, qfour, qfive, qsix, " . 
               "qseven, qeight, qnine, date, qten) VALUES ('$id', '$qone', '$qtwo', '$qthree', '$qfour','$qfive','$qsix','$qseven','$qeight', '$qnine', '$date','$qten')";
       $result=mysql_query($query);
 
 
       if ($result)
       {
-         $query = "SELECT LAST_INSERT_ID() from apptunsurveys";
+         $query = "SELECT LAST_INSERT_ID() from tunsurveys";
          $result = mysql_query($query);
          $row = mysql_fetch_array($result);
          $_SESSION['cust'] = $row[0];

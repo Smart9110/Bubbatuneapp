@@ -154,7 +154,7 @@ session_start();
          $result = mysql_query($query);
          $row = mysql_fetch_array($result);
          $_SESSION['cust'] = $row[0];
-         header("Location:http://bubbatuneapp.com/appterms.html");
+         header("Location:http://bubbatuneapp.com/index.html#catpage");
       }
       else
       {
@@ -176,7 +176,7 @@ session_start();
          case(4):
             echo "<h2>I'm sorry, that e-mail address already exists.</h2>\n";
        }
-       echo "<a href=\"http://www.bubbatuneapp.com/index.html#signuppage\">Try again</a>\n";
+       echo "<a href=\"http://www.bubbatuneapp.com/index.html#signuppage">Try again</a>\n";
    }
 ?>
 

@@ -20,6 +20,6 @@
    } else
    {
       echo "<h2>Sorry, Unable to verify customer</h2>\n";
-      echo "<a href=\"https://www.bubbatuneapp.com/index.html\">Go back to signin</a>\n";
+      echo "<a href=\"https://www.bubbatuneapp.com/memberslogin.html\">Go back to signin</a>\n";
    }
 ?>    
