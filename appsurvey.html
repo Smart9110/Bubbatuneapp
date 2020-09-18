@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Survey</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+
+
+  
+  <style>
+  
+  .survey{margin-top:40px;
+           
+  
+  }
+  
+  .survey label{margin-left:40px;
+  
+  }
+ 
+  
+   
+   footer li{text-align:center;
+         padding:40px;
+  
+  }
+  
+  span{color:white;
+        font-size:1.3em;
+  
+  }
+
+  
+  
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+<div class="w3-bar w3-center w3-border w3-padding w3-green">
+<h1>Survey</h1>
+ </div>
+    </div>
+
+<div class="container">
+<div class="survey">
+ <form action="https://www.bubbatunes.com/appsurveyadd.inc.php" method="post">
+
+<div class="survey">
+  <p>Qustion 1</p>
+  <h4>How did you hear about us?</h4>
+   <fieldset data-role="controlgroup">
+    <label  class="checkbox-inline  name=checkbox">
+      <input type="checkbox" name="Q1" id="NBC4" value="NBC4">NBC4
+    </label>
+    <label  class="checkbox-inline  name=checkbox">
+      <input type="checkbox" name="Q1" id="Social Media" value="Social Media">Social Media
+    </label>
+    <label  class="checkbox-inline  name=checkbox">
+      <input type="checkbox" name="Q1" id="Comcast" value="Comcast">Comcast
+       <label  class="checkbox-inline  name=checkbox">
+      <input type="checkbox" name="Q1" id="AppStore" value="AppStore">AppStore
+
+     </fieldset>
+</div>
+
+<hr>
+<br>
+
+<div class="survey">
+   <p>Qustion 2</p>
+  <h4>On a scale from 1-5 how did you like Navigation of the Website?</h4>
+  <fieldset data-role="controlgroup">
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q2" id="Bad" value="Bad">Bad
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q2" id="Not So Bad" value="Not So Bad">Not So Bad
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q2" id="No Answer" value="No Answer">No Answer
+      </label>
+       <label  class= checkbox-inline >
+      <input type="checkbox" name="Q2" id="Good" value="Good">Good
+      </label>
+       <label class= checkbox-inline >
+      <input type="checkbox" name="Q2" id="Great" value="Great">Great
+    </label>
+    </fieldset>
+</div>
+<hr>
+<br>
+
+<div class="survey">
+  <p>Qustion 3</p>
+  <h4>Did we offer products to your interest?</h4>
+  <fieldset data-role="controlgroup">
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q3" id="Yes" value="Yes">Yes
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q3" id="No" value="No">No 
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q3" id="No Answer" value="No Answer">No Answer
+    </label>
+     </fieldset>
+</div>
+<hr>
+<br>
+<div class="survey">
+  <p>Qustion 4</p>
+  <h4>Did the Website look professional?</h4>
+  <fieldset data-role="controlgroup">
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q4" id="Yes It was Great" value="Yes It was Great">Yes It was Great
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q4" id="Yes It was Ok" value="Yes It was Ok">Yes It was Ok
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q4" id="No It was Bad" value="No It was Bad">No It was Bad
+    </label>
+     </fieldset>
+</div>
+<hr>
+<br>
+<div class="survey">
+  <p>Qustion 5</p>
+  <h4>Would you tell a friend about Uhinkle?</h4>
+  <fieldset data-role="controlgroup">
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q5" id="Yes " value="Yes ">Yes 
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q5" id="Maybe" value="Maybe">Maybe
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q5" id="No" value="No">No
+    </label>
+     </fieldset>
+</div>
+<hr>
+<br>
+<div class="survey">
+   <p>Qustion 6</p>
+  <h4>Were our prices too high or should be lowered?</h4>
+  <fieldset data-role="controlgroup">
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q6" id="Too High" value="Too High">Too High
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q6" id="" value="">It was Just Right
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q6" id="It was Just Right" value="It was Just Right">It could have been Lower
+    </label>
+     </fieldset>
+</div>
+<hr>
+<br>
+<div class="survey">
+   <p>Qustion 7</p>
+  <h4>Is free shipping a value when buying products from BubbaTunes?</h4>
+  <fieldset data-role="controlgroup">
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q7" id="Yes" value="Yes">Yes
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q7" id="No Answer" value="No Answer">No Answer
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q7" id="No" value="No">No
+    </label>
+     </fieldset>
+</div>
+<hr>
+<br>
+<div class="survey">
+   <p>Qustion 8</p>
+  <h4>How did you like our Music Library and Selections?</h4>
+  <fieldset data-role="controlgroup">
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q8" id="The displays were great" value="The displays were great">The displays were great
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q8" id="Now Answer" value="Now Answer">Now Answer
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q8" id="The Displays need work" value="The Displays need work">The Displays need work
+    </label>
+     </fieldset>
+</div>
+<hr>
+<br>
+<div class="survey">
+   <p>Qustion 9</p>
+  <h4>What is your overall opinion about BubbaTunes?</h4>
+  <fieldset data-role="controlgroup">
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q9" id="It's a Great Website" value="It's a Great Website">It's a Great Website
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q9" id="Keep Trying" value="Keep Trying">Keep Trying
+    </label>
+    <label  class= checkbox-inline >
+      <input type="checkbox" name="Q9" id="It need some work" value="It need some work">It need some work
+    </label>
+     </fieldset>
+</div>
+<hr>
+<br>
+<div class="survey">
+  <p>Qustion 10</p>
+<h4> For a $5.00 Credit Tell Us about you experience 
+with BubbaTunes.com and BubbaTunesapp</h4>
+    <textarea class="form-control" name="Q10" rows="5" id="For a $5.00 Credit Tell Us about you experience with Uhinkle.com" value="" style="width:50%; height:150px"></textarea>
+
+  </div>
+<p>
+
+ <input type="submit" data-inline="true" value="Submit">
+ </form>
+ <hr>
+<br>
+
+<footer class="container-fluid w3-bar w3-border width:100%; w3-green">
+ <ul class="list-inline">
+<li><a href="copyright.php"><span>Copyright &copy Uhinkle Corporation 2017</span></a></li>
+</ul>  
+</footer>
+
+</body>
+</html>
+

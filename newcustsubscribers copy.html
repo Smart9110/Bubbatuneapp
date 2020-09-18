@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />-->
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />-->
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+    
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <!-- Include the jQuery library -->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
+ 
+
+   <link rel="stylesheet" type="text/css" href="musicapp.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+   <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+   
+
+
+    <title>New Customers</title>
+    
+   <meta name="HandheldFriendly" content="True">
+   <meta name="MobileOptimized" content="320"/>
+   <meta name="viewport" content="width-device-width, Initial-scale=1.0">
+   
+    <link rel="stylesheet" type="text/css" href="main.min.css">
+
+   
+ <style>
+/************ Video Player ****************/
+video {
+    box-shadow: none !important;
+    padding-top: 15px;
+    width: 100%;
+}
+
+#video-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: auto;
+}
+#description {
+  color: #666666;
+    margin: auto;
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    padding: 15px;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+#playlist {
+    display:table;
+    margin: 0;
+    width: 100%;
+}
+#playlist p {
+  width: 100%;
+  float: left;
+  margin: 0;
+  color: #666666;
+  font-size: 14px;
+  padding-left: 15px;
+}
+#playlist li{
+  cursor: pointer;
+  padding: 5px;
+  display: inline-flex;
+  width: 100%;
+  float: left;
+}
+
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); /* Adjust as needed */
+}
+
+#playlist li:hover{
+    color:blue;                        
+}
+#video-player {
+    width:100% !important;
+    height:auto;   
+}
+.video-thumbnail {
+    width: 190px;
+    height: 108px;
+}
+#video-container #title {
+    font-size: 3em;
+    margin: 10px 15px;
+    font-family: helvetica, arial, sans-serif;
+}
+.new {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 2px;
+  font-size: 12px;
+  border-radius: 2px;
+  margin-left: 8px;
+}
+
+.new {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 2px;
+  font-size: 12px;
+  border-radius: 2px;
+  margin-left: 8px;
+}
+
+
+
+ 
+ .free{margin-left:45px;
+ 
+ }
+ 
+ 
+ .container {
+    position: relative;
+}
+
+.center {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+ 
+  
+.mySlides {display: none;}   
+
+
+
+  .bottom a{font-size:.9em;
+  
+  
+  }
+  
+  
+  .ui-btn {
+      background: #000;
+      color: #fff;
+   }
+  .ui-btn:hover {
+      background: #fff;
+      color: #000;
+   }
+
+
+
+ </style>
+</head>
+
+
+ 		<div data-role="page" id="newcustsubscribers">
+		<div data-role="header"  data-position="fixed">
+	<h1><b></b></h1><br>
+	
+		</div>  
+   
+
+ 		<div data-role="controlgroup" data-type="horizontal">
+
+		<a href ="index.html#mypage" class="ui-btn">Back</a>
+						<h2></h2>
+		</div>			
+  <div data-role="main" class="ui-content music" style="text-align:center"; >
+ 				<h2>Welcome</h2><br><br>
+	
+
+<p>Please fill out this form.<p>
+<!--<form action="http://www.bubbatuneapp.com/addcust.html" method="post">-->
+<form action="https://bubbatunes.com/appaddcustsubsc.php" method="post">
+
+	<div class="form-group">
+      <label for="lastname">Last Name:</label>
+      <input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname">
+    </div>
+
+	<div class="form-group">
+      <label for="firstname">firstname:</label>
+      <input type="text" class="form-control" id="firstname" placeholder="First Name" name="firstname">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password1">
+    </div>
+     <div class="form-group">
+    <label for="pwd">Confirm password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password2">
+    </div>
+    
+         <div class="checkbox">
+    <label><a href = "appterms.html">Terms and Conditions</a></label><br><br><br>
+    <button type="submit" class="btn btn-default">Submit</button>
+    
+   </form>
+
+
+   
+	   </div>
+    
+     <div data-role="footer"  data-position="fixed">
+	  <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact">/ Contact</a></p>
+	</div>
+ 
+
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>  
+ 
+<script>
+
+
+function lettersOnly(input) {
+    var regex = /[^a-z]/gi;
+    input.value = input.value.replace(regex, "");
+}
+
+function lettersAlpha(input) {
+    var regex = /[^\d.]/g;
+    input.value = input.value.replace(regex, "");
+}
+
+function lettersAlphaNumeric(input) {
+    var regex = /[`~!@#$%^&*_|+\?;:'"<>\{\}\[\]\\\/]/gi;
+    input.value = input.value.replace(regex, "");
+}
+
+</script>
+
+
+
+
+</body>
+</html>
+

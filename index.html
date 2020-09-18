@@ -1,0 +1,2579 @@
+ <!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />-->
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />-->
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+    
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <!-- Include the jQuery library -->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
+ 
+
+   <link rel="stylesheet" type="text/css" href="musicapp.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+   <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+   
+
+
+    <title>Hello World</title>
+    
+   <meta name="HandheldFriendly" content="True">
+   <meta name="MobileOptimized" content="320"/>
+   <meta name="viewport" content="width-device-width, Initial-scale=1.0">
+   
+    <link rel="stylesheet" type="text/css" href="main.min.css">
+
+   
+ <style>
+/************ Video Player ****************/
+video {
+    box-shadow: none !important;
+    padding-top: 15px;
+    width: 100%;
+}
+
+#video-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: auto;
+}
+#description {
+  color: #666666;
+    margin: auto;
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    padding: 15px;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+#playlist {
+    display:table;
+    margin: 0;
+    width: 100%;
+}
+#playlist p {
+  width: 100%;
+  float: left;
+  margin: 0;
+  color: #666666;
+  font-size: 14px;
+  padding-left: 15px;
+}
+#playlist li{
+  cursor: pointer;
+  padding: 5px;
+  display: inline-flex;
+  width: 100%;
+  float: left;
+}
+
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); /* Adjust as needed */
+}
+
+#playlist li:hover{
+    color:blue;                        
+}
+#video-player {
+    width:100% !important;
+    height:auto;   
+}
+.video-thumbnail {
+    width: 190px;
+    height: 108px;
+}
+#video-container #title {
+    font-size: 3em;
+    margin: 10px 15px;
+    font-family: helvetica, arial, sans-serif;
+}
+.new {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 2px;
+  font-size: 12px;
+  border-radius: 2px;
+  margin-left: 8px;
+}
+
+.new {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 2px;
+  font-size: 12px;
+  border-radius: 2px;
+  margin-left: 8px;
+}
+
+a{ text-decoration: none;
+ 
+}
+
+ 
+ .free{margin-left:45px;
+ 
+ }
+ 
+ 
+ .container {
+    position: relative;
+}
+
+.center {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('/w3images/parallax1.jpg');
+    min-height: 100%;
+}
+
+/* Second image (Portfolio) */
+.bgimg-2 {
+    background-image: url("images/Musical Instruments 08.jpg");
+    min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+    background-image: url("/w3images/parallax3.jpg");
+    min-height: 400px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }
+}
+ 
+ 
+  
+.mySlides {display: none;}   
+
+
+
+  .bottom a{font-size:.9em;
+  
+  
+  }
+  
+  
+  .ui-btn {
+      background: #000;
+      color: #fff;
+   }
+  .ui-btn:hover {
+      background: #fff;
+      color: #000;
+   }
+
+
+
+ </style>
+</head>
+
+<body>
+ 
+
+ <div data-role="page" id="mypage">
+ 	<div data-role="header" data-position="fixed">
+	<h1><b>BubbaTunes</b></h1>
+	
+	</div>
+	
+	
+       <!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+	<div class="w3-center" >
+    	 
+   		</div>
+
+	  
+ <div data-role="main" class="ui-content music" style="text-align:center"; >
+	
+		<div data-role="controlgroup" data-type="horizontal">
+	<h1><b><br><br><p style="font-size:40px;  text-align:center; color:#3333ff"><strong>BubbaTunes<br> The App</strong></p>
+	
+     </b></h1> <img src="images/GraphicA_B.jpg" class="w3-image w3-margin-top" width="600" height="700">
+<br>
+     </div>
+  <!-- <p><i class="fa fa-microphone" style="font-size:60px;color:red;"></i><i class="fa fa-microphone" style="font-size:100px"></i><i class="fa fa-microphone" style="font-size:60px;color:red;"></i></p>-->
+  		<div>
+  	<div data-role="main" class="ui-content music" style="text-align:center"; >
+		<p><span style="font-size:30px; color:#3333ff;"><b></b></span></p>
+		<p><span style="font-size:20px; color:#3333ff;"><b>$5.49/a month</b></span></p>
+	  <!--<a href = "musicfreeparty.html" class="ui-btn">Subscribe Now</a><br>-->
+	 <!--<a href = "newcustsubscribers.html" class="ui-btn" style="color:#fef8ec; background-color:#3333ff;">Subscribe Now</a><br>-->
+	  <a href = "newcustsubscribers.html" class="ui-btn" style="color:#fef8ec; background-color:#3333ff;">Subscribe Now</a><br>
+	 
+	 <a href ="memberslogin.html" class="ui-btn" style="color:#fef8ec; background-color:#3333ff;">Sign In</a><br><br>
+		<p><a href ="TermsandConditions.html" ><span style="font-size:20px; color:#3333ff;"><b>Terms and Conditions</b></span></a></p><br>
+  	<p><a href ="privacy.html" ><span style="font-size:20px; color:#3333ff;"><b>Privacy</b></span></a></p>
+
+		
+
+
+   
+	   </div>
+	<div class="bgimg-2 w3-display-container w3-opacity-min">
+<br>
+    
+
+	<!--<div data-role="main" class="ui-content music" style="text-align:center"; >
+	<p>BubbaTunes</p>
+	<img src="images/icons8-Microphone-50.png" alt="icons8-Microphone-50" style="width:100px; height:100px";><br>
+	<img src="images/icons8-Microphone-50.png" alt="icons8-Microphone-50" style="width:70px; height:70px";>
+	<img src="images/icons8-Microphone-50.png" alt="icons8-Microphone-50" style="width:70px; height:70px"; >
+  	</div>-->
+  	
+  	<!-----------------Paradox-------------------------------------------------------------------->
+  	<div class="w3-display-container w3-text-yellow w3-center w3-margin" style="max-width:600px">
+  <!--<img src="images/IMG_0670(500x700).jpg" alt="IMG_0670(500x700)" style="width:100%; height:800px">-->
+ 
+   
+
+  
+     <div data-role="footer"  data-position="fixed">
+	 <p><a href = "#copyright">CopyRight &copy Uhinkle Corporation 2017</a></p>
+	</div>
+ 
+
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+ <!-------------------------------------------------------------------------------->       
+      
+     <!-- START OF Free PAGE-->
+     
+     <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+       
+
+    <link rel="stylesheet" type="text/css" href="resourcesfree/css/main.min.css">
+
+
+  
+		<div data-role="page" id="freepage">
+		<div data-role="header"  data-position="fixed">	
+		</div>  
+        
+   	 <div data-role="main" class="ui-content music" style="text-align:center"; >
+	
+		<div data-role="controlgroup" data-type="horizontal">
+	<h1><b>Free To Listen Music </b></h1><br>
+	<!--<a href ="newcust.html" class="ui-btn">Subscribe Now</a>-->
+	<a href ="memberslogin.html" class="ui-btn">Sign In Page</a>
+	
+		</div>
+		<!--<div class="w3-container">-->
+<div class='jAudio'>
+
+      <audio></audio>
+
+      <div class='jAudio--ui'>
+
+        <div class='jAudio--thumb'></div>
+
+        <div class='jAudio--status-bar'>
+
+          <div class='jAudio--details'></div>
+          <div class='jAudio--volume-bar'></div>
+
+          <div class='jAudio--progress-bar'>
+            <div class='jAudio--progress-bar-wrapper'>
+              <div class='jAudio--progress-bar-played'>
+                <span class='jAudio--progress-bar-pointer'></span>
+              </div>
+            </div>
+          </div>
+
+          <div class='jAudio--time'>
+            <span class='jAudio--time-elapsed'>00:00</span>
+            <span class='jAudio--time-total'>00:00</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class='jAudio--playlist'>
+      </div>
+
+      <div class='jAudio--controls'>
+        <ul>
+          <li><button class='jAudio--control jAudio--control-prev' data-action='prev'><span></span></button></li>
+          <li><button class='jAudio--control jAudio--control-play' data-action='play'><span></span></button></li>
+          <li><button class='jAudio--control jAudio--control-next' data-action='next'><span></span></button></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script src='resourcesfree/js/jaudio.min.js'></script>
+    <script src='resourcesfree/js/main.js'></script>
+
+  
+	 <div class="w3-display-middle w3-large" style="text-align:center;">
+        </div>
+	
+
+
+	</div>
+	<div data-role="Terms and Conditions"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Terms and Conditions</p>
+	</div>
+
+	</div>
+ 
+
+   </div>
+   </div>
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+      
+ 
+ <!---------------------------------------------------------------------------------------->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <!-- START OF Sign In PAGE-->
+		<div data-role="page" id="signinpage">
+		<div data-role="header"  data-position="fixed">
+		<h1><b>Sign In </b></h1><br>
+			</div>
+	
+
+ 	 <div data-role="main" class="ui-content music" style="text-align:center"; >
+	
+		<div data-role="controlgroup" data-type="horizontal">
+	<h1><b>Sign In </b></h1><br>
+	<a href = "javascript:history.go(-1)" class="ui-btn">back</a>
+		</div>
+		
+	<!--<form action="verifycust.php method=post" >-->
+ 	<form  method="post" target="_blank" onclick="window.open('https://www.bubbatuneapp.com/appverifycust.php', '_system', 'location=yes'); return false;">
+  <label>E-mail:</label>
+  <input type="email" name="email" placeholder="Your email..">
+  <label>Password:</label>
+   <input type="password" name="password1" placeholder="Your Password.." >
+    <input type="submit" data-inline="true" value="Login">
+    <!--<button type="button" value="Student Payments" onclick="window.location.href='http://www.truQueen.com';"/>Nmmmm</button>-->
+    <!--<button type="button" value="Student Payments" onclick="window.open('http://www.bubbatunes.com/verifycust.php/', '_system', 'location=yes');"/>BBBBBBBBB</button>-->
+
+    <!--<input type="button" id="myButton" value="Add"/>-->
+  
+    </form>
+    
+    <div class="w3-display-middle w3-large" style="text-align:center;">
+
+    <a href ="newcustcancel.html" class="ui-btn" style="color:red;">Cancelation</a>
+ 	</div>
+ 	</div>
+ 
+		 <div class="w3-display-middle w3-large" style="text-align:center;">
+     </div>
+	
+
+
+	</div>
+	<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">CopyRight &copy Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+
+	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+
+
+
+   <!------------------------------------------------------------------------------------>
+    
+ <!-- START OF Sign Up PAGE-->
+		<div data-role="page" id="signuppage">
+		<div data-role="header"  data-position="fixed">
+		<h1><b>Sign Up </b></h1><br>
+			</div>
+	
+
+ 	<div data-role="main" class="ui-content music" style="text-align:center"; >
+	
+		<div data-role="controlgroup" data-type="horizontal">
+	<h1><b>Sign Up </b></h1><br>
+	<a href = "javascript:history.go(-1)" class="ui-btn">back</a>
+		
+		</div>
+
+ <div class="ui-grid-a">
+      <div class="ui-block-a">
+		 <form action="appaddcustsubsc.php method=post"> 
+		<label>First name:</label>
+        <input type="text" name="firstname" id="fristname" placeholder="Your First Name..">
+        <label>Last name:</label>
+        <input type="text" name="lastname" id="lastname" placeholder="Your Last Name..">
+        <label>E-mail:</label>
+        <input type="email" name="email" id="email" placeholder="Your email..">
+        <label>Password:</label>
+        <input type="password" name="password1" id="password1" placeholder="Your Password.."> 
+         <lable>Confirm password</lable>
+   		<input type="password"  name="password2" id="password2" placeholder="Confirm.. ">
+
+        
+      <input type="submit" data-inline="true" value="Submit">
+    </form> 
+	</div>
+ 	</div>
+ 	</div>
+ 	</div>
+ 
+ 
+		
+		 <div class="w3-display-middle w3-large" style="text-align:center;">
+     </div>
+	
+
+
+	</div>
+	<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">CopyRight &copy Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+     </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+
+ 
+  <!---------------------------Subscribe Now---------------------------------------------------------->
+    
+ <!-- START OF Sign Up PAGE-->
+		<div data-role="page" id="appsubscribers">
+		<div data-role="header"  data-position="fixed">
+		<h1><b>Subscribe Now</b></h1><br>
+			</div>
+	
+
+ 	<div data-role="main" class="ui-content music" style="text-align:center"; >
+	
+		<div data-role="controlgroup" data-type="horizontal">
+	<h1><b>Subscribe Now</b></h1><br>
+	<a href = "javascript:history.go(-1)" class="ui-btn">back</a>
+		
+		</div>
+
+ <div class="ui-grid-a">
+      <div class="ui-block-a">
+		 <form action="addcustsubsc.php method=post"> 
+		<label>First name:</label>
+        <input type="text" name="firstname" id="fristname" placeholder="Your First Name..">
+        <label>Last name:</label>
+        <input type="text" name="lastname" id="lastname" placeholder="Your Last Name..">
+        <label>E-mail:</label>
+        <input type="email" name="email" id="email" placeholder="Your email..">
+        <label>Password:</label>
+        <input type="password" name="password1" id="password1" placeholder="Your Password.."> 
+         <lable>Confirm password</lable>
+   		<input type="password"  name="password2" id="password2" placeholder="Confirm.. ">
+
+        
+      <input type="submit" data-inline="true" value="Submit">
+    </form> 
+	</div>
+ 	</div>
+ 	</div>
+ 	</div>
+ 
+ 
+		
+		 <div class="w3-display-middle w3-large" style="text-align:center;">
+     </div>
+	
+
+
+	</div>
+	<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+     </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+
+ <!--------------------------------------------------------------------------------------------------------->
+ 
+ 
+  <!-- Cancel Subscription PAGE-->
+		<div data-role="page" id="cancel">
+		<div data-role="header"  data-position="fixed">
+	<h1><b>Cancelation</b></h1><br>
+	</div>
+	
+	<div data-role="main" class="ui-content music" style="text-align:center"; >
+	
+		<div data-role="controlgroup" data-type="horizontal">
+	<h1><b>Cancelation</b></h1><br>
+		<a href = "#mypage" class="ui-btn">Home</a>
+			</div>
+			
+
+ 
+ <div data-role="main" class="ui-content music" style="text-align:center"; >	
+<h3>Cancelation</h3>
+<p>It's your right to cancel the Subscription at any time.  We will stop charging your Credit Card or Paypal account as of the 
+first day of cancelation.  We are sorry to see you go and will honor this request without further action on your part.
+Please note, that your subscription will be disconnected and access denied within 5 business days and before a new Subscription
+is charged. If within a month of a Subscription, we will not provided refunds for any partial month in which your Subscription
+may run.</p></div>
+<hr>
+
+<div class="container">
+<h2>Were Sorry to see you go</h2><br><br>
+
+<p>Please fill out this form.<p>
+<!--<form action="http://www.bubbatuneapp.com/addcust.html" method="post">-->
+<form action="https://bubbatunes.com/appcancelations.php" method="post">
+
+	<div class="form-group">
+      <label for="lastname">Last Name:</label>
+      <input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password1">
+    </div> 
+     <div class="form-group">
+    <label for="pwd">Confirm password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password2">
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+</div>
+
+ 
+ 
+ 
+</div>
+	<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017/</a><a href = "#contact"> Contact</a></p>
+	</div>
+
+
+ 	</div>
+ 	</div>
+ 	</div>
+ 
+
+ 
+ 
+ 
+ 
+ 
+ <!------------------------------------------------------------------------------------------------------------>
+	
+ 
+	
+ 
+ 
+  <!-- START OF Music Category PAGE-->
+		<div data-role="page" id="catpage">
+		<div data-role="header"  data-position="fixed">
+	<h1><b>Music Category</b></h1><br>
+	</div>
+	
+	<div data-role="main" class="ui-content music" style="text-align:center"; >
+	
+		<div data-role="controlgroup" data-type="horizontal">
+	<h1><b>Music Category</b></h1><br>
+		<a href = "#mypage" class="ui-btn">Home</a>
+			</div>
+			
+<div class="w3-container">
+<hr>
+<div class="w3-cell-row">
+  <div class="w3-cell" style="width:30%">
+    <a href = "musicrandb.html"><img src="images/r&b2(3D).jpg" style="width:100%"></a>
+  </div>
+  <div class="w3-cell w3-container">
+    <h3>R&B</h3>
+    <p>R&B Music Streaming<br>Select</p>
+  </div>
+</div>
+<hr>
+<div class="w3-cell-row">
+  <div class="w3-cell" style="width:30%">
+    <a href = "musicrap.html"><img src="images/rap2(3D).jpg" style="width:100%"></a>
+  </div>
+  <div class="w3-cell w3-container">
+    <h3>RAP</h3>
+    <p>RAP Music Streaming<br>Select</p>
+  </div>
+</div>  
+<hr>
+<div class="w3-cell-row">
+  <div class="w3-cell" style="width:30%">
+    <a href = "musicpop.html"><img src="images/pop2(3D).jpg" style="width:100%"></a>
+  </div>
+  <div class="w3-cell w3-container">
+    <h3>POP</h3>
+    <p>Pop Music Streaming<br>Select</p>
+  </div>
+</div>
+
+<hr>
+<div class="w3-cell-row">
+  <div class="w3-cell" style="width:30%">
+    <a href = "musicpopsaturday.html"><img src="images/spv2(3D).jpg" style="width:100%"></a>
+  </div>
+  <div class="w3-cell w3-container">
+    <h3>Saturday Party</h3>
+    <p>Pop Explosion Saturday Streaming<br>Select</p>
+  </div>
+</div>
+
+
+<hr>
+<div class="w3-cell-row">
+  <div class="w3-cell" style="width:30%">
+    <a href = "videoscartoons.html"><img src="images/video2(3D).jpg" style="width:100%"></a>
+  </div>
+  <div class="w3-cell w3-container">
+    <h3>Music Video Party</h3>
+    <p>Video Streaming<br>Select</p>
+  </div>
+</div>
+
+
+<hr>
+<hr>
+
+ 
+
+
+</div>
+	<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017/</a><a href = "#contact"> Contact</a></p>
+	</div>
+
+
+ 	</div>
+ 	</div>
+ 	</div>
+ 
+
+
+ <!-------------------------------------------------------------------->
+ 
+
+ <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <!-- Include the jQuery library -->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/musicapp.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
+   
+
+    <link rel="stylesheet" type="text/css" href="resources/css/main.min.css">
+
+
+
+    <title>Music R&B</title>
+
+  	 
+<style>
+
+.copy{font-size:1em;
+
+
+}
+.copy a{text-decoration:none;
+
+}
+
+{background-color:lightblue;
+				height:650px;
+
+}
+
+
+
+{
+    background-color: lightgrey;
+    width: 300px;
+    height:200px;
+    border: 25px solid green;
+    padding: 45px;
+    margin: 25px;
+}
+
+div.audio img{width: 30%;
+		height:auto;
+
+}
+
+
+
+
+
+
+</style>
+
+
+<script>
+
+var ref = cordova.InAppBrowser.open('http://BubbaTunes.com', '_blank', 'location=yes');
+
+
+</script>
+
+
+
+<script>
+   
+	var ref = cordova.InAppBrowser.open(url, target, options);
+	var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+
+	
+	var inAppBrowserRef;
+
+function showHelp(url) {
+
+    var target = "_blank";
+
+    var options = "location=yes,hidden=yes";
+
+    inAppBrowserRef = cordova.InAppBrowser.open(url, target, options);
+
+    inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
+
+    inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
+
+    inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
+
+}
+
+function loadStartCallBack() {
+
+    $('#status-message').text("loading please wait ...");
+
+}
+
+function loadStopCallBack() {
+
+    if (inAppBrowserRef != undefined) {
+
+        inAppBrowserRef.insertCSS({ code: "body{font-size: 25px;" });
+
+        $('#status-message').text("");
+
+        inAppBrowserRef.show();
+    }
+
+}
+
+function loadErrorCallBack(params) {
+
+    $('#status-message').text("");
+
+    var scriptErrorMesssage =
+       "alert('Sorry we cannot open that page. Message from the server is : "
+       + params.message + "');"
+
+    inAppBrowserRef.executeScript({ code: scriptErrorMesssage }, executeScriptCallBack);
+
+    inAppBrowserRef.close();
+
+    inAppBrowserRef = undefined;
+
+}
+
+function executeScriptCallBack(params) {
+
+    if (params[0] == null) {
+
+        $('#status-message').text(
+           "Sorry we couldn't open that page. Message from the server is : '"
+           + params.message + "'");
+    }
+
+}
+
+	
+	ref.close();
+
+</script>
+
+
+	<div data-role="page" id="rbpage">
+	<div data-role="header"  data-position="fixed">
+	<h1>BubbaTunes R&B Music</h1>
+	</div>
+
+	<div data-role="main" class="ui-content music" style="text-align:center"; >
+	
+		<div data-role="controlgroup" data-type="horizontal">
+		 <a href = "musicrap.html" class="ui-btn">To RAP Page</a>
+	     <a href = "#catpage" class="ui-btn">Back To Music Category</a>
+		<h1> R&B Music</h1>
+
+      	         </div><br>
+
+<br>
+
+
+    <div class='jAudio'>
+
+      <audio></audio>
+
+      <div class='jAudio--ui'>
+
+        <div class='jAudio--thumb'></div>
+
+        <div class='jAudio--status-bar'>
+
+          <div class='jAudio--details'></div>
+          <div class='jAudio--volume-bar'></div>
+
+          <div class='jAudio--progress-bar'>
+            <div class='jAudio--progress-bar-wrapper'>
+              <div class='jAudio--progress-bar-played'>
+                <span class='jAudio--progress-bar-pointer'></span>
+              </div>
+            </div>
+          </div>
+
+          <div class='jAudio--time'>
+            <span class='jAudio--time-elapsed'>00:00</span>
+            <span class='jAudio--time-total'>00:00</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class='jAudio--playlist'>
+      </div>
+
+      <div class='jAudio--controls'>
+        <ul>
+          <li><button class='jAudio--control jAudio--control-prev' data-action='prev'><span></span></button></li>
+          <li><button class='jAudio--control jAudio--control-play' data-action='play'><span></span></button></li>
+          <li><button class='jAudio--control jAudio--control-next' data-action='next'><span></span></button></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script src='resources/js/jaudio.min.js'></script>
+    <script src='resources/js/main.js'></script>
+
+  
+	</div>
+	<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+   </div>
+
+	</div>
+   </div>
+   </div>
+   
+   
+   
+ <!-------------------------------------------------------------------------------->  
+   
+ 				
+
+   	 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <!-- Include the jQuery library -->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/musicapp.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
+   
+    <link rel="stylesheet" type="text/css" href="resourcesrap/css/main.min.css">
+
+
+
+    <title>Music RAP</title>
+
+  	  
+
+
+
+<style>
+
+.copy{font-size:1em;
+
+
+}
+.copy a{text-decoration:none;
+
+}
+
+{background-color:lightblue;
+				height:650px;
+
+}
+
+
+
+{
+    background-color: lightgrey;
+    width: 300px;
+    height:200px;
+    border: 25px solid green;
+    padding: 45px;
+    margin: 25px;
+}
+
+div.audio img{width: 30%;
+		height:auto;
+
+}
+
+
+
+
+</style>
+
+
+<script>
+
+var ref = cordova.InAppBrowser.open('http://BubbaTunes.com', '_blank', 'location=yes');
+
+
+</script>
+
+
+
+<script>
+   
+	var ref = cordova.InAppBrowser.open(url, target, options);
+	var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+
+	
+	var inAppBrowserRef;
+
+function showHelp(url) {
+
+    var target = "_blank";
+
+    var options = "location=yes,hidden=yes";
+
+    inAppBrowserRef = cordova.InAppBrowser.open(url, target, options);
+
+    inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
+
+    inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
+
+    inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
+
+}
+
+function loadStartCallBack() {
+
+    $('#status-message').text("loading please wait ...");
+
+}
+
+function loadStopCallBack() {
+
+    if (inAppBrowserRef != undefined) {
+
+        inAppBrowserRef.insertCSS({ code: "body{font-size: 25px;" });
+
+        $('#status-message').text("");
+
+        inAppBrowserRef.show();
+    }
+
+}
+
+function loadErrorCallBack(params) {
+
+    $('#status-message').text("");
+
+    var scriptErrorMesssage =
+       "alert('Sorry we cannot open that page. Message from the server is : "
+       + params.message + "');"
+
+    inAppBrowserRef.executeScript({ code: scriptErrorMesssage }, executeScriptCallBack);
+
+    inAppBrowserRef.close();
+
+    inAppBrowserRef = undefined;
+
+}
+
+function executeScriptCallBack(params) {
+
+    if (params[0] == null) {
+
+        $('#status-message').text(
+           "Sorry we couldn't open that page. Message from the server is : '"
+           + params.message + "'");
+    }
+
+}
+
+	
+	ref.close();
+
+</script>
+
+<div data-role="page" id="rappage">
+	<div data-role="header"  data-position="fixed">
+	<h1>BubbaTunes RAP Music</h1>
+	</div>
+
+	<div data-role="main" class="ui-content music" style="text-align:center"; >
+	
+		<div data-role="controlgroup" data-type="horizontal">
+      	 <a href="musicpop.html" class="ui-btn">To POP</a>
+	 	<a href = "#catpage" class="ui-btn">Back To Music Category</a>
+	 	<h1> RAP Music</h1>
+
+         </div><br>
+
+
+	
+<br>
+
+    <div class='jAudio'>
+
+      <audio></audio>
+
+      <div class='jAudio--ui'>
+
+        <div class='jAudio--thumb'></div>
+
+        <div class='jAudio--status-bar'>
+
+          <div class='jAudio--details'></div>
+          <div class='jAudio--volume-bar'></div>
+
+          <div class='jAudio--progress-bar'>
+            <div class='jAudio--progress-bar-wrapper'>
+              <div class='jAudio--progress-bar-played'>
+                <span class='jAudio--progress-bar-pointer'></span>
+              </div>
+            </div>
+          </div>
+
+          <div class='jAudio--time'>
+            <span class='jAudio--time-elapsed'>00:00</span>
+            <span class='jAudio--time-total'>00:00</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class='jAudio--playlist'>
+      </div>
+
+      <div class='jAudio--controls'>
+        <ul>
+          <li><button class='jAudio--control jAudio--control-prev' data-action='prev'><span></span></button></li>
+          <li><button class='jAudio--control jAudio--control-play' data-action='play'><span></span></button></li>
+          <li><button class='jAudio--control jAudio--control-next' data-action='next'><span></span></button></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script src='resourcesrap/js/jaudio.min.js'></script>
+    <script src='resourcesrap/js/main.js'></script>
+
+ 
+
+</div>
+	<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+ 
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+	
+	
+<!-------------------------------------------------------------------->	
+	
+		
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+	 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <!-- Include the jQuery library -->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/musicapp.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
+   
+
+    <link rel="stylesheet" type="text/css" href="resourcespop/css/main.min.css">
+
+
+
+    <title>Music POP</title>
+
+  	  
+<style>
+
+.copy{font-size:1em;
+
+
+}
+.copy a{text-decoration:none;
+
+}
+
+{background-color:lightblue;
+				height:650px;
+
+}
+
+
+
+{
+    background-color: lightgrey;
+    width: 300px;
+    height:200px;
+    border: 25px solid green;
+    padding: 45px;
+    margin: 25px;
+}
+
+div.audio img{width: 30%;
+		height:auto;
+
+}
+
+
+
+
+</style>
+
+
+
+<script>
+
+var ref = cordova.InAppBrowser.open('http://BubbaTunes.com', '_blank', 'location=yes');
+
+
+</script>
+
+
+
+<script>
+   
+	var ref = cordova.InAppBrowser.open(url, target, options);
+	var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+
+	
+	var inAppBrowserRef;
+
+function showHelp(url) {
+
+    var target = "_blank";
+
+    var options = "location=yes,hidden=yes";
+
+    inAppBrowserRef = cordova.InAppBrowser.open(url, target, options);
+
+    inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
+
+    inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
+
+    inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
+
+}
+
+function loadStartCallBack() {
+
+    $('#status-message').text("loading please wait ...");
+
+}
+
+function loadStopCallBack() {
+
+    if (inAppBrowserRef != undefined) {
+
+        inAppBrowserRef.insertCSS({ code: "body{font-size: 25px;" });
+
+        $('#status-message').text("");
+
+        inAppBrowserRef.show();
+    }
+
+}
+
+function loadErrorCallBack(params) {
+
+    $('#status-message').text("");
+
+    var scriptErrorMesssage =
+       "alert('Sorry we cannot open that page. Message from the server is : "
+       + params.message + "');"
+
+    inAppBrowserRef.executeScript({ code: scriptErrorMesssage }, executeScriptCallBack);
+
+    inAppBrowserRef.close();
+
+    inAppBrowserRef = undefined;
+
+}
+
+function executeScriptCallBack(params) {
+
+    if (params[0] == null) {
+
+        $('#status-message').text(
+           "Sorry we couldn't open that page. Message from the server is : '"
+           + params.message + "'");
+    }
+
+}
+
+	
+	ref.close();
+
+</script>
+
+
+		<div data-role="page" id="poppage">
+		<div data-role="header"  data-position="fixed">
+	<h1><b>POP Music</b></h1>
+	</div>
+	
+	<div data-role="main" class="ui-content music" style="text-align:center"; >
+	
+		<div data-role="controlgroup" data-type="horizontal">
+		 	<a href = "musicpopsaturday.html" class="ui-btn">Saturday Night Party</a>
+	     <a href = "#catpage" class="ui-btn">Back To Music Category</a>
+
+	 	<h1><b>POP Music</b></h1>
+
+		</div>
+	<hr>
+	
+
+
+
+    <div class='jAudio'>
+
+      <audio></audio>
+
+      <div class='jAudio--ui'>
+
+        <div class='jAudio--thumb'></div>
+
+        <div class='jAudio--status-bar'>
+
+          <div class='jAudio--details'></div>
+          <div class='jAudio--volume-bar'></div>
+
+          <div class='jAudio--progress-bar'>
+            <div class='jAudio--progress-bar-wrapper'>
+              <div class='jAudio--progress-bar-played'>
+                <span class='jAudio--progress-bar-pointer'></span>
+              </div>
+            </div>
+          </div>
+
+          <div class='jAudio--time'>
+            <span class='jAudio--time-elapsed'>00:00</span>
+            <span class='jAudio--time-total'>00:00</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class='jAudio--playlist'>
+      </div>
+
+      <div class='jAudio--controls'>
+        <ul>
+          <li><button class='jAudio--control jAudio--control-prev' data-action='prev'><span></span></button></li>
+          <li><button class='jAudio--control jAudio--control-play' data-action='play'><span></span></button></li>
+          <li><button class='jAudio--control jAudio--control-next' data-action='next'><span></span></button></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script src='resourcespop/js/jaudio.min.js'></script>
+    <script src='resourcespop/js/main.js'></script>
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+	
+
+ 	</div>
+	<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+
+	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+
+	<!---- ------------------------------------------------START OF Video PAGE-------->
+		<!---------------------------------------------------------------------------------------------------->	
+
+
+	 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <!-- Include the jQuery library -->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/musicapp.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
+   
+    <link rel="stylesheet" type="text/css" href="resourcespopsaturday/css/main.min.css">
+
+
+
+    <title>Music POP Saturday Night</title>
+
+  	 
+
+
+<style>
+
+.copy{font-size:1em;
+
+
+}
+.copy a{text-decoration:none;
+
+}
+
+{background-color:lightblue;
+				height:650px;
+
+}
+
+
+
+{
+    background-color: lightgrey;
+    width: 300px;
+    height:200px;
+    border: 25px solid green;
+    padding: 45px;
+    margin: 25px;
+}
+
+div.audio img{width: 30%;
+		height:auto;
+
+}
+
+</style>
+
+
+
+<script>
+
+var ref = cordova.InAppBrowser.open('http://BubbaTunes.com', '_blank', 'location=yes');
+
+
+</script>
+
+
+
+<script>
+   
+	var ref = cordova.InAppBrowser.open(url, target, options);
+	var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+
+	
+	var inAppBrowserRef;
+
+function showHelp(url) {
+
+    var target = "_blank";
+
+    var options = "location=yes,hidden=yes";
+
+    inAppBrowserRef = cordova.InAppBrowser.open(url, target, options);
+
+    inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
+
+    inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
+
+    inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
+
+}
+
+function loadStartCallBack() {
+
+    $('#status-message').text("loading please wait ...");
+
+}
+
+function loadStopCallBack() {
+
+    if (inAppBrowserRef != undefined) {
+
+        inAppBrowserRef.insertCSS({ code: "body{font-size: 25px;" });
+
+        $('#status-message').text("");
+
+        inAppBrowserRef.show();
+    }
+
+}
+
+function loadErrorCallBack(params) {
+
+    $('#status-message').text("");
+
+    var scriptErrorMesssage =
+       "alert('Sorry we cannot open that page. Message from the server is : "
+       + params.message + "');"
+
+    inAppBrowserRef.executeScript({ code: scriptErrorMesssage }, executeScriptCallBack);
+
+    inAppBrowserRef.close();
+
+    inAppBrowserRef = undefined;
+
+}
+
+function executeScriptCallBack(params) {
+
+    if (params[0] == null) {
+
+        $('#status-message').text(
+           "Sorry we couldn't open that page. Message from the server is : '"
+           + params.message + "'");
+    }
+
+}
+
+	
+	ref.close();
+
+</script>
+
+
+	<div data-role="page" id="popsatpage">
+		<div data-role="header"  data-position="fixed">
+	<h1><b>POP Music Saturday Night</b></h1>
+	</div>
+	
+	<div data-role="main" class="ui-content music" style="text-align:center"; >
+
+	 <div data-role="controlgroup" data-type="horizontal">
+	 	<a href = "videoscartoons.html" class="ui-btn">Music Video's</a>
+
+	   <a href = "#catpage" class="ui-btn">Back To Music Category</a>
+
+	<h1><b>POP Saturday Night</b></h1>
+		</div>
+	
+
+
+          <hr>
+          
+        
+    <div class='jAudio'>
+
+      <audio></audio>
+
+      <div class='jAudio--ui'>
+
+        <div class='jAudio--thumb'></div>
+
+        <div class='jAudio--status-bar'>
+
+          <div class='jAudio--details'></div>
+          <div class='jAudio--volume-bar'></div>
+
+          <div class='jAudio--progress-bar'>
+            <div class='jAudio--progress-bar-wrapper'>
+              <div class='jAudio--progress-bar-played'>
+                <span class='jAudio--progress-bar-pointer'></span>
+              </div>
+            </div>
+          </div>
+
+          <div class='jAudio--time'>
+            <span class='jAudio--time-elapsed'>00:00</span>
+            <span class='jAudio--time-total'>00:00</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class='jAudio--playlist'>
+      </div>
+
+      <div class='jAudio--controls'>
+        <ul>
+          <li><button class='jAudio--control jAudio--control-prev' data-action='prev'><span></span></button></li>
+          <li><button class='jAudio--control jAudio--control-play' data-action='play'><span></span></button></li>
+          <li><button class='jAudio--control jAudio--control-next' data-action='next'><span></span></button></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script src='resourcespopsaturday/js/jaudio.min.js'></script>
+    <script src='resourcespopsaturday/js/main.js'></script>
+
+
+</div>
+	<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+
+ 
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+   <!-------------------------------------------------------------------------------->       
+      
+     
+ 
+
+    
+    
+    <!---- ------------------------------------------------START OF Video PAGE-------->
+
+  <style>
+
+/************ Video Player ****************/
+video {
+    box-shadow: none !important;
+    padding-top: 15px;
+    width: 100%;
+}
+
+#video-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: auto;
+}
+#description {
+  color: #666666;
+    margin: auto;
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    padding: 15px;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+#playlist {
+    display:table;
+    margin: 0;
+    width: 100%;
+}
+#playlist p {
+  width: 100%;
+  float: left;
+  margin: 0;
+  color: #666666;
+  font-size: 14px;
+  padding-left: 15px;
+}
+#playlist li{
+  cursor: pointer;
+  padding: 5px;
+  display: inline-flex;
+  width: 100%;
+  float: left;
+}
+
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); /* Adjust as needed */
+}
+
+#playlist li:hover{
+    color:blue;                        
+}
+#video-player {
+    width:100% !important;
+    height:auto;   
+}
+.video-thumbnail {
+    width: 190px;
+    height: 108px;
+}
+#video-container #title {
+    font-size: 3em;
+    margin: 10px 15px;
+    font-family: helvetica, arial, sans-serif;
+}
+.new {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 2px;
+  font-size: 12px;
+  border-radius: 2px;
+  margin-left: 8px;
+}
+
+</style>
+
+
+
+
+<script>
+
+var ref = cordova.InAppBrowser.open('http://BubbaTunes.com', '_blank', 'location=yes');
+
+
+
+
+
+
+   
+	var ref = cordova.InAppBrowser.open(url, target, options);
+	var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+
+	
+	var inAppBrowserRef;
+
+function showHelp(url) {
+
+    var target = "_blank";
+
+    var options = "location=yes,hidden=yes";
+
+    inAppBrowserRef = cordova.InAppBrowser.open(url, target, options);
+
+    inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
+
+    inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
+
+    inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
+
+}
+
+function loadStartCallBack() {
+
+    $('#status-message').text("loading please wait ...");
+
+}
+
+function loadStopCallBack() {
+
+    if (inAppBrowserRef != undefined) {
+
+        inAppBrowserRef.insertCSS({ code: "body{font-size: 25px;" });
+
+        $('#status-message').text("");
+
+        inAppBrowserRef.show();
+    }
+
+}
+
+function loadErrorCallBack(params) {
+
+    $('#status-message').text("");
+
+    var scriptErrorMesssage =
+       "alert('Sorry we cannot open that page. Message from the server is : "
+       + params.message + "');"
+
+    inAppBrowserRef.executeScript({ code: scriptErrorMesssage }, executeScriptCallBack);
+
+    inAppBrowserRef.close();
+
+    inAppBrowserRef = undefined;
+
+}
+
+function executeScriptCallBack(params) {
+
+    if (params[0] == null) {
+
+        $('#status-message').text(
+           "Sorry we couldn't open that page. Message from the server is : '"
+           + params.message + "'");
+    }
+
+}
+
+	
+	ref.close();
+
+</script>
+
+
+</head>
+
+
+
+<body>
+
+	<div data-role="page" data-theme="a"><!--/a,b,c,d,e -->
+	<div data-role="header"  data-position="fixed">
+	<h1>BubbaTunes Video's</h1>
+	</div>
+
+	<div data-role="main" class="ui-content music" style="text-align:center"; >
+	
+		<div data-role="controlgroup" data-type="horizontal">
+	   <a href = "#catpage" class="ui-btn">Back To Music Category</a>
+         </div><br>
+
+<br>
+<br>
+
+   
+ 
+
+   
+  <div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+
+ 
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+ 
+  
+
+  <script>
+  // Video Script
+$(function() {
+    $("#playlist li").on("click", function() {
+        $("#video-player").attr({
+            "src": $(this).attr("movieurl"),
+            "poster": "",
+            "autoplay": "autoplay",
+            "data-description": $(this).attr("data-description"),
+            "title": $(this).attr("title")
+        })
+    })
+     $("#playlist li").on("click", function() {
+        $("#description").attr({
+            "label": $(this).attr("label")
+        }).text($(this).attr("label"))
+    })
+     $("#playlist li").on("click", function() {
+        $("#title").attr({
+            "title": $(this).attr("title")
+        }).text($(this).attr("title"))
+    })
+    $("#video-player").attr({
+        "src": $("#playlist li").eq(0).attr("movieurl"),
+        "poster": $("#playlist li").eq(0).attr("moviesposter"),
+        "data-description": $("#playlist li").eq(0).attr("data-description"),
+        "title": $("#playlist li").eq(0).attr("title")    
+    })
+})
+
+// GA script
+document.addEventListener('DOMContentLoaded', init, false)
+var videoId = document.getElementById('video-player');
+var videoTitle = $('#videoplay').click(function () {
+  $(this).data('description');
+  console.log($(this).attr('data-description'));
+});
+console.log(videoTitle);
+
+function init() {
+  videoId.addEventListener('ended', videoEnd, false)
+  videoId.addEventListener('timeupdate', videoTimeUpdate, false)
+  videoId.addEventListener('play', videoPlay, false)
+  videoId.addEventListener('pause', videoPause, false)
+}
+
+function setKeyFrames(duration) {
+  var quarter = (duration / 4).toFixed(1)
+  sessionStorage.setItem('one', quarter)
+  sessionStorage.setItem('two', (quarter * 2).toFixed(1))
+  sessionStorage.setItem('three', (quarter * 3).toFixed(1))
+}
+
+function videoTimeUpdate() {
+  var curTime = videoId.currentTime.toFixed(1);
+  var videoTitle = $(this).attr('data-description');
+  switch (curTime) {
+  case sessionStorage.getItem('one'):
+    ga('send', 'event', 'video', '25% video played', videoTitle)
+    sessionStorage.setItem('one', null)
+  case sessionStorage.getItem('two'):
+    ga('send', 'event', 'video', '50% video played', videoTitle)
+    sessionStorage.setItem('two', null)
+  case sessionStorage.getItem('three'):
+    ga('send', 'event', 'video', '75% video played', videoTitle)
+    sessionStorage.setItem('three', null)
+  }
+}
+
+function videoEnd() {
+  ga('send', 'event', 'video', '100% video played', $(this).attr('data-description'))
+}
+
+function videoPlay() {
+  ga('send', 'event', 'video', 'video played', $(this).attr('data-description'))
+  setKeyFrames(this.duration)
+}
+
+function videoPause() {
+  ga('send', 'event', 'video', 'video paused', $(this).attr('data-description'))
+}
+  </script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-0000000-00', 'auto');
+      ga('send', 'pageview');
+  </script>
+
+
+
+	
+<!--------------------Pricing------------------------------------------------------------>
+
+
+	<div data-role="page" id="pricing">
+		<div data-role="header"  data-position="fixed">
+	<h1><b></b></h1>
+	
+	</div>
+	
+	
+	<div data-role="main" class="ui-content music" style="text-align:center"; >
+
+	 <div data-role="controlgroup" data-type="horizontal">
+	<a href = "#mypage" class="ui-btn">Home</a>
+
+	<h1><b></b></h1>
+		</div>
+	<hr>
+
+
+<br>
+<br>
+<br>
+
+<div   class="ui-content bar" >
+	
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider"><h3>1 Month</h3></li>
+      <li data-role="list-divider"><h3>Unlimited Music</h3></li>
+      <li data-role="list-divider"><h3>$10</h3></li>
+      <li data-role="list-divider"><h3>$10 Total</h3></li>
+      <!--<li><a href="monthonepurchases.html"><h3>Purchase</h3></a></li>-->
+      <a href = "#onemonth" class="ui-btn">Purchase</a><br>
+      <!--<a target="_blank" href="#" class="ui-btn ui-shadow" onclick="window.open('https://www.bubbatuneapp.com/monthonepurchases.html', '_system', 'location=yes');">Purchase</a>-->
+
+ 
+       
+    </ul>
+</div>
+	
+
+
+<div  class="ui-content  bar" >
+
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider"><h3>6 Month</h3></li>
+      <li data-role="list-divider"><h3>Unlimited Music</h3></li>
+      <li data-role="list-divider"><h3>$10</h3></li>
+      <li data-role="list-divider"><h3>$60 Total</h3></li>
+      <!--<li><a href="monthsixpurchases.html"><h3>Purchase</h3></a></li>-->
+      <a href = "#sixmonths" class="ui-btn">Purchase</a><br>
+      <!--<a target="_blank" href="#" class="ui-btn ui-shadow" onclick="window.open('https://www.bubbatuneapp.com/monthsixpurchases.html', '_system', 'location=yes');">Purchase</a>-->
+
+ 
+       
+    </ul>
+	</div>
+	
+
+
+
+
+	<div  class="ui-content bar">
+	
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider"><h3>12 Month</h3></li>
+      <li data-role="list-divider"><h3>Unlimited Music</h3></li>
+      <li data-role="list-divider"><h3>$10</h3></li>
+      <li data-role="list-divider"><h3>$120 Total</h3></li>
+      <!--<li><a href="monthtwelvepurchases.html"><h3>Purchase</h3></a></li>-->
+      <a href = "#twelvemonths" class="ui-btn">Purchase</a><br>
+      <!--<a target="_blank" href="#" class="ui-btn ui-shadow" onclick="window.open('https://www.bubbatuneapp.com/monthtwelvepurchases.html', '_system', 'location=yes');">Purchase</a>-->
+
+ 
+       
+    </ul>
+    </div>
+	</div>
+
+
+
+
+
+
+
+<br>
+<br>
+
+ 
+
+</div>
+	<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+        
+        
+<!-----------------------------Pay -Us One Month-------------------------------------------------------->
+
+
+	<div data-role="page" id="onemonth">
+		<div data-role="header"  data-position="fixed">
+	<h1><b></b></h1>
+	
+	</div>
+	
+
+<br>
+<br>
+<br>
+
+<div   class="ui-content bar" >
+	
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider"><h3>1 month</h3></li>
+      <li data-role="list-divider"><h3>Unlimited Music</h3></li>
+      <li data-role="list-divider"><h3>$10</h3></li>
+      <li data-role="list-divider"><h3>$10 per month</h3></li> 
+   
+
+<!--<ul class="w3-ul w3-border w3-center w3-hover-shadow">-->
+<!--<li class="w3-black w3-xlarge w3-padding-32"><b>Payment Page With<br> Credit Cards</b>-->
+<p class="w3-lightgray w3-xlarge w3-padding-32"><b><br> Credit Cards </b></p>
+<div id="cp5d19961be4" style="margin: 10px 0" onclick="document.getElementById('pay_now_form_9be5a5e333').submit()"><div>
+<div class='r-bg '><span class='r-fg r-fg-3'></span> <span class='r-fg r-fg-2'></span> <span class='r-fg r-fg-1'></span> 
+<span class='r-fg r-fg-0'></span> </div>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="CNFVM5L6B252A">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+
+
+  	<h2 style="text-align:center;">OR</h2>
+  	
+	<!--<ul class="w3-ul w3-border w3-center w3-hover-shadow">-->
+<!--<li class="w3-light-grey w3-xlarge w3-padding-32"><b> PayPal<br> Checkout</b>-->
+<p class="w3-light-grey w3-xlarge" style="text-align:center;" ><b> PayPal</b></p>
+	<div style="text-align:center;">
+	<input type="hidden" name="cmd" value="_ext-enter">
+	<form action="https://www.paypal.com/us/cgi-bin/webscr" class="w3-container w3-card-4" method="post">
+   <input type="hidden" name="cmd" value="_xclick">
+   <input type="hidden" name="hosted_button_id" value="R5DZ63Z29MVP6">
+   <input type="hidden" name="business" value="reginald@Uhinkle.com">
+    <input type="hidden" readonly="readonly" name="item_name" value="One Month Subscription">  
+   <input type="hidden" name="currency_code" value="USD">  
+   <input type="hidden"  readonly="readonly" name="amount"  value="10">
+   <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+	</form></li></ul>
+	</div>
+
+ 
+<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+ 
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+ 
+
+
+<!-------------------------------Pay Us Six Months----------------------------------------------->
+
+
+<div data-role="page" id="sixmonths">
+		<div data-role="header"  data-position="fixed">
+	<h1><b></b></h1>
+	</div>
+<br>
+<br>
+<br>
+
+<div   class="ui-content bar" >
+	
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider"><h3>6 months</h3></li>
+      <li data-role="list-divider"><h3>Unlimited Music</h3></li>
+      <li data-role="list-divider"><h3>$60</h3></li>
+      <li data-role="list-divider"><h3>$10 per month</h3></li> 
+
+<!--<ul class="w3-ul w3-border w3-center w3-hover-shadow">-->
+<!--<li class="w3-black w3-xlarge w3-padding-32"><b>Payment Page With<br> Credit Cards</b>-->
+<p class="w3-lightgray w3-xlarge w3-padding-32"><b><br> Credit Cards </b></p>
+
+	<div id="cp422fba2c49" style="margin: 10px 0" onclick="document.getElementById('pay_now_form_c66d3c103b').submit()"><div>
+	<div class='r-bg '><span class='r-fg r-fg-3'></span> <span class='r-fg r-fg-2'></span> <span class='r-fg r-fg-1'></span>
+	 <span class='r-fg r-fg-0'></span> </div><form action="https://checkout.globalgatewaye4.firstdata.com/pay" id="pay_now_form_c66d3c103b" method="post">
+	 <input type="hidden" name="x_login" value="WSP-UHINK-Y&QyAQC51Q" /><input type="hidden" name="x_show_form" value="PAYMENT_FORM" />
+	 <input type="hidden" name="x_fp_sequence" value="15513218182392046749" /><input type="hidden" name="x_fp_hash" value="PNB-1.0-91f5ca3ba0d0aa64f539ce0fee0069bdb8a53512" />
+	 <input type="hidden" name="x_amount" value="60" /><input type="hidden" name="x_currency_code" value="USD" />
+	 <input type="hidden" name="x_test_request" value="FALSE" /><input type="hidden" name="x_relay_response" value="" />
+	 <input type="hidden" name="donation_prompt" value="" />
+	 <input type="hidden" name="button_code" value="Pay Now https://Bubbatuneapp.com" />
+	 <div class="cpwrap"><button type="button">Pay Now</button></div>
+	 </form><div class='r-bg '><span class='r-fg r-fg-0'></span> 
+	 <span class='r-fg r-fg-1'></span> <span class='r-fg r-fg-2'></span>
+	  <span class='r-fg r-fg-3'></span> </div></div></div>
+	  <style type="text/css">div#cp422fba2c49{width: 200px; background-color: #FF9900;}div#cp422fba2c49:hover{cursor: pointer}div#cp422fba2c49 * {background-color: #FFAA00;}div#cp422fba2c49 form{margin:0; padding:0;text-align:center}div#cp422fba2c49 div.cpwrap {width: 90%;border:0;margin:0 auto;padding: 0px; background-color: #FF9900}div#cp422fba2c49 button{width: 95%;border:0;margin:0;padding: 3px 0; background-color: #FF9900;text-align: center; color: #FFFFFF; }div#cp422fba2c49:hover button {text-decoration: underline}div#cp422fba2c49 button:focus,div#cp422fba2c49 button:visited,div#cp422fba2c49 button:active{border:none;outline: none}div#cp422fba2c49 button {font-size: 16px}div#cp422fba2c49 div.cpwrap {border-left: 3px solid #FFAA00; border-right: 3px solid #FFAA00}div#cp422fba2c49 .r-fg{background-color: #FFAA00; border-color: #FFAA00}div#cp422fba2c49 .r-bg{background-color: white}div#cp422fba2c49 .r-fg{border-style: solid; border-width: 0px 1px; overflow: hidden; display: block; height: 1px; font-size: 1px}div#cp422fba2c49 .r-fg-0{margin-left: 1px; margin-right: 1px; border-width: 0px 1px !important; height: 1px !important}div#cp422fba2c49 .r-fg-1{margin-left: 2px; margin-right: 2px}div#cp422fba2c49 .r-fg-2{margin-left: 3px; margin-right: 3px}div#cp422fba2c49 .r-fg-3{margin-left: 5px; margin-right: 5px}</style>
+
+		 </div>
+	               
+              <h2 style="text-align:center;"> OR</h2>
+  <!--<ul class="w3-ul w3-border w3-center w3-hover-shadow">-->
+ <!--<li class="w3-light-grey w3-xlarge w3-padding-32"><b> PayPal<br> Checkout</b>-->
+  <p class="w3-light-grey w3-xlarge" style="text-align:center;"><b> PayPal<br></b></p>
+  <div style="text-align:center;">
+	<input type="hidden" name="cmd" value="_ext-enter">
+	<form action="https://www.paypal.com/us/cgi-bin/webscr" class="w3-container w3-card-4" method="post">
+   <input type="hidden" name="cmd" value="_xclick">
+   <input type="hidden" name="hosted_button_id" value="R5DZ63Z29MVP6">
+   <input type="hidden" name="business" value="reginald@Uhinkle.com">
+    <input type="hidden" readonly="readonly" name="item_name" value="One Month Subscription">  
+   <input type="hidden" name="currency_code" value="USD">  
+   <input type="hidden"  readonly="readonly" name="amount"  value="60">
+   <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+	</form></li></ul>
+
+	</div>
+	
+
+
+
+</div>
+	<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+ 
+
+
+
+
+<!-----------------------------Pay Us twelve months-------------------------------------------------------->
+
+
+
+     <div data-role="page" id="twelvemonths">
+		<div data-role="header"  data-position="fixed">
+	<h1><b></b></h1>
+	</div>
+
+   <br>
+
+<div   class="ui-content bar" >
+	
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider"><h3>1 Year</h3></li>
+      <li data-role="list-divider"><h3>Unlimited Music</h3></li>
+      <li data-role="list-divider"><h3>$120</h3></li>
+      <li data-role="list-divider"><h3>$10 per month</h3></li> 
+<!--<ul class="w3-ul w3-border w3-center w3-hover-shadow">-->
+<!--<li class="w3-black w3-xlarge w3-padding-32"><b>Payment Page With<br> Credit Cards</b></li>-->
+<p class="w3-lightgray w3-xlarge w3-padding-32"><b><br> Credit Cards </b></p>
+ <div id="cp5f5eaf2e65" style="margin: 10px 0" onclick="document.getElementById('pay_now_form_6a70df1714').submit()"><div>
+   <div class='r-bg '><span class='r-fg r-fg-3'></span> <span class='r-fg r-fg-2'></span> <span class='r-fg r-fg-1'></span> 
+   <span class='r-fg r-fg-0'></span> </div><form action="https://checkout.globalgatewaye4.firstdata.com/pay" id="pay_now_form_6a70df1714" method="post">
+   <input type="hidden" name="x_login" value="WSP-UHINK-Y&QyAQC51Q" />
+   <input type="hidden" name="x_show_form" value="PAYMENT_FORM" />
+   <input type="hidden" name="x_fp_sequence" value="1551322007234260586" />
+   <input type="hidden" name="x_fp_hash" value="PNB-1.0-4f9709a0b52f0ecbd1616348287166fc333396cb" />
+   <input type="hidden" name="x_amount" value="120" /><input type="hidden" name="x_currency_code" value="USD" />
+   <input type="hidden" name="x_test_request" value="FALSE" /><input type="hidden" name="x_relay_response" value="" />
+   <input type="hidden" name="donation_prompt" value="" />
+   <input type="hidden" name="button_code" value="Pay Now https://Bubbatuneapp.com" />
+   <div class="cpwrap"><button type="button">Pay Now</button></div>
+   </form>
+   <div class='r-bg '><span class='r-fg r-fg-0'></span> <span class='r-fg r-fg-1'></span> 
+   <span class='r-fg r-fg-2'></span> <span class='r-fg r-fg-3'></span> </div></div></div>
+   <style type="text/css">div#cp5f5eaf2e65{width: 200px; background-color: #FF9900;}div#cp5f5eaf2e65:hover{cursor: pointer}div#cp5f5eaf2e65 * {background-color: #FFAA00;}div#cp5f5eaf2e65 form{margin:0; padding:0;text-align:center}div#cp5f5eaf2e65 div.cpwrap {width: 90%;border:0;margin:0 auto;padding: 0px; background-color: #FF9900}div#cp5f5eaf2e65 button{width: 95%;border:0;margin:0;padding: 3px 0; background-color: #FF9900;text-align: center; color: #FFFFFF; }div#cp5f5eaf2e65:hover button {text-decoration: underline}div#cp5f5eaf2e65 button:focus,div#cp5f5eaf2e65 button:visited,div#cp5f5eaf2e65 button:active{border:none;outline: none}div#cp5f5eaf2e65 button {font-size: 16px}div#cp5f5eaf2e65 div.cpwrap {border-left: 3px solid #FFAA00; border-right: 3px solid #FFAA00}div#cp5f5eaf2e65 .r-fg{background-color: #FFAA00; border-color: #FFAA00}div#cp5f5eaf2e65 .r-bg{background-color: white}div#cp5f5eaf2e65 .r-fg{border-style: solid; border-width: 0px 1px; overflow: hidden; display: block; height: 1px; font-size: 1px}div#cp5f5eaf2e65 .r-fg-0{margin-left: 1px; margin-right: 1px; border-width: 0px 1px !important; height: 1px !important}div#cp5f5eaf2e65 .r-fg-1{margin-left: 2px; margin-right: 2px}div#cp5f5eaf2e65 .r-fg-2{margin-left: 3px; margin-right: 3px}div#cp5f5eaf2e65 .r-fg-3{margin-left: 5px; margin-right: 5px}</style>
+
+	  </div>
+   
+   
+  	<h2 style="text-align:center;">OR</h2>
+  	
+	<!--<ul class="w3-ul w3-border w3-center w3-hover-shadow">-->
+    <!--<li class="w3-light-grey w3-xlarge w3-padding-32"><b> PayPal<br> Checkout</b>-->
+   <p class="w3-light-grey w3-xlarge" style="text-align:center;"><b> PayPal<br></b></p>
+  <div style="text-align:center;">
+     <input type="hidden" name="cmd" value="_ext-enter">
+	<form action="https://www.paypal.com/us/cgi-bin/webscr" class="w3-container w3-card-4" method="post">
+   <input type="hidden" name="cmd" value="_xclick">
+   <input type="hidden" name="hosted_button_id" value="R5DZ63Z29MVP6">
+   <input type="hidden" name="business" value="reginald@Uhinkle.com">
+    <input type="hidden" readonly="readonly" name="item_name" value="One Month Subscription">  
+   <input type="hidden" name="currency_code" value="USD">  
+   <input type="hidden"  readonly="readonly" name="amount"  value="120">
+   <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+	</form></li></ul>
+
+	</div>
+	
+
+
+</div>
+	<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+
+ 	
+        
+
+<!---------------------------CONTACT------------------------------------------------------>
+
+
+	<div data-role="page" id="contact">
+	<div data-role="header"  data-position="fixed">
+	<h1><b>Contact</b></h1>
+	</div>
+	
+	<div data-role="main" class="ui-content music" style="text-align:center"; >
+
+	 <div data-role="controlgroup" data-type="horizontal">
+	 	<a href = "#mypage" class="ui-btn">Home</a>
+	   <!--<a href = "#catpage" class="ui-btn">Back To Music Category</a>-->
+
+	<h1><b></b></h1>
+		</div>
+	
+
+
+      
+<div class="w3-container">
+    <h2>Contact</h2>
+    <p>If you have any questions, do not hesitate to ask them.</p>
+     <i class="fa fa-map-marker w3-text-red" style="width:30px"></i>Reggie<br>
+    <i class="fa fa-map-marker w3-text-red" style="width:30px"></i> U.S.A<br>
+    <i class="fa fa-phone w3-text-red" style="width:30px"></i> Phone: 301 297-5060<br>
+   <!-- <i class="fa fa-envelope w3-text-red" style="width:30px"> </i> Email: Us<br>-->
+    <!--<form action="mailto:Reginald@Uhinkle.com" method="post" enctype="text/plain">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Comments" required name="comment"></p>
+      <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
+    </form>-->
+  </div>
+
+
+<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	  <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+ 
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+
+ <!-------------------------------Copyright----------------------------------------------->
+ 
+ <div data-role="page" id="copyright">
+	<div data-role="header"  data-position="fixed">
+	<h1><b></b></h1>
+	</div>
+	
+	<div data-role="main" class="ui-content music" style="text-align:center"; >
+
+	 <div data-role="controlgroup" data-type="horizontal">
+	 	<a href = "#mypage" class="ui-btn">Home</a>
+	  	<h1><b></b></h1>
+		</div>
+	
+
+ 
+ <div class= "contenter" style="margin-top:100px">
+<h3>Notice Of CopyRight</h3>
+</div>
+
+<div class="container w3-row">
+  <div class="w3-panel">
+
+<p>The use of a copyr ight notice is no longer required under U.S. law, although it is often beneficial. Because pr ior law did contain such a requirement, 
+however, the use of notice is still relevant to the copyr ight status of older wor ks.
+Notice was required under the 1976 Copyright Act. This requirement was eliminated when the United States adhered to the Berne Convention , effective March 1, 1989. 
+Although works published without notice before that date could have entered the public domain in the United States, the Uruguay Round Agreements Act (URAA) restores 
+copyright in certain foreign works originally published without notice. For further information about copyright amendments in the URAA, see Highlights of Copyright 
+Amendments Contained inthe Uruguay Round Agreements Act from the U.S. Copyright Office.
+The Copyr ight Office does not take a position on whether copies of wor ks first published with notice before March 1, 1989, which are distr ibuted on or after March 1,
+ 1989, must bear the copyr ight notice.
+Use of the notice may be impor tant because it infor ms the public that the wor k is protected by copyr ight, identifies the copyr ight owner, and shows the year of first 
+publication. Fur ther more, in the event that a wor k is infr inged, if a proper notice of copyr ight appears on the published copy or copies to which a defendant in a copyright 
+infringement suit had access, then no weight shall be given to such a defendant’s inter position of a defense based on innocent infringement in mitigation of actual or statutory 
+damages, except as provided in Section 504(c)(2) of the copyr ight law. Innocent infr inge- ment occurs when the infr inger did not realize that the wor k was protected.
+The use of the copyr ight notice is the responsibility of the copyr ight owner and does not require advance per mission from, or registration with, the Copyr ight Office.
+Form of Notice for Visually Perceptible Copies
+The notice for visually perceptible copies should contain all the following three elements:
+1. The copyr ight symbol (©), or the word "Copyr ight," or the abbreviation "Copr."; and
+2. The year of first publication of the wor k. In the case of compilations or der ivative wor ks incor porating previously pub- lished mater ial, the year date of first 
+publication of the compilation or der ivative wor k is sufficient. The year date may be omitted where a pictor ial, graphic, or sculptural wor k, with accompanying textual matter, 
+if any, is reproduced in or on greeting cards, postcards, stationer y, jewelr y, dolls, toys, or any useful ar ticle; and
+3. The name of the owner of copyr ight in the wor k, or an abbreviation by which the name can be recognized, or a gener- ally known alternative designation of the owner.
+Example: © 2002 John Doe
+The "©" notice is used only on "visually perceptible copies." Cer tain kinds of wor ks -- for example, musical, dramatic, and literar y works -- may be fixed not in "copies"
+ but by means of sound in an audio recording. Since audio recordings such as audio tapes and phonograph disks are "phonorecords" and not "copies," the "C in a circle" notice 
+ is not used to indicate protection of the under lying musical, dramatic, or literar y wor k that is recorded.
+Form of Notice for Phonorecords of Sound Recordings*
+* Sound recordings are defined in the law as "works that result from the fixation of a series of musical, spoken, or other sounds, but not including the sounds accompanying a 
+motion picture or other audiovisual wor k." Common examples include recordings of music, drama, or lectures. A sound recording is not the same as a phonorecord. A phonorecord is 
+the physical object in which wor ks of authorship are embodied. The word "phonorecord" includes cassette tapes, CDs, LPs, 45 r. p. m. disks, as well as other for mats.
+￼￼
+The notice for phonorecords embodying a sound recording should contain all the following three elements: 1. The symbol (the letter P in a circle); and
+2. The year of first publication of the sound recording; and
+3. The name of the owner of copyr ight in the sound recording, or an abbreviation by which the name can be recognized, or a generally known alternative designation of the owner. 
+If the producer of the sound recording is named on the phonorecord label or container and if no other name appears in conjunction with the notice, the producer’s name shall be considered a part of the notice.
+Example: 2002 A. B. C. Records Inc.
+NOTE: Since questions may ar ise from the use of var iant for ms of the notice, you may wish to seek legal advice before using any for m of the notice other than those given here.
+Position of Notice
+The copyr ight notice should be affixed to copies or phonorecords in such a way as to "give reasonable notice of the claim of copyr ight." The three elements of the notice should 
+ordinar ily appear together on the copies or phonorecords or on the phonorecord label or container. T he Copyr ight Office has issued regulations concer ning the for m and position of the copy- right 
+notice in the Code of Federal Regulations ( 37 CFR Section 201.20 ). For more infor mation, see this ar ticle from the U.S. Copyr ight Office titled Copyr ight Notice .
+Publications Incorporating U.S. Government Works
+Wor ks by the U.S. Gover nment are not eligible for U.S. copyr ight protection. For wor ks published on and after March 1, 1989, the previous notice requirement for wor ks consisting pr imar ily 
+of one or more U.S. Gover nment wor ks has been eliminated. However, use of a notice on such a wor k will defeat a claim of innocent infr ingement as previously descr ibed provided the notice also 
+includes a statement that identifies either those por tions of the wor k in which copyr ight is claimed or those por tions that constitute U.S. Gover nment mater ial.
+Example: © 2002 Jane Brown. Copyr ight claimed in Chapters 7-10, exclusive of U.S. Gover nment maps
+Copies of wor ks published before March 1, 1989, that consist pr imar ily of one or more wor ks of the U.S. Gover nment
+should have a notice and the identifying statement. Unpublished Works
+The author or copyr ight owner may wish to place a copyr ight notice on any unpublished copies or phonorecords that leave his or her control.
+Example: Unpublished wor k © 2002 Jane Doe
+Omission of the Notice and Errors in Notice
+The 1976 Copyright Act attempted to ameliorate the strict consequences of failure to include notice under prior law. It con- tained provisions that set out 
+specific corrective steps to cure omissions or certain errors in notice. Under these provi- sions, an applicant had 5 years after publication to cure omission of notice or certain errors. Although these 
+provisions are technically still in the law, their impact has been limited by the amendment making notice optional for all wor ks published on and after March 1, 1989. For fur ther 
+infor mation, see the Copyr ight Notice article .</p>
+</div>
+</div>
+
+    
+<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact"> Contact</a></p>
+	</div>
+ 
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+<!------------------------------------------Disclaimer----------------------------------->
+	<div data-role="page" id="disclaimer">
+	<div data-role="header"  data-position="fixed">
+	<h1><b></b></h1>
+	</div>
+	
+	<div data-role="main" class="ui-content music" style="text-align:center"; >
+
+	 <div data-role="controlgroup" data-type="horizontal">
+	 	<a href = "#mypage" class="ui-btn">Home</a>
+	  	<h1><b></b></h1>
+		</div>
+	
+
+
+
+
+
+
+
+
+
+
+
+		<div data-role="footer"  data-position="fixed" style="text-align:center;">
+	 	 <p class = "bottom"><a href = "#copyright">Copy Right&copy;Uhinkle Corporation 2017</a><a href = "#contact">/ Contact</a></p>
+		</div>
+ 
+ 	
+        </div><!-- /footer -->
+        </div><!-- /page -->
+        </div>
+        </div>
+
+<!---------------------------------------------------------------------------------------->
+	
+
+  <script>
+  // Video Script
+$(function() {
+    $("#playlist li").on("click", function() {
+        $("#video-player").attr({
+            "src": $(this).attr("movieurl"),
+            "poster": "",
+            "autoplay": "autoplay",
+            "data-description": $(this).attr("data-description"),
+            "title": $(this).attr("title")
+        })
+    })
+     $("#playlist li").on("click", function() {
+        $("#description").attr({
+            "label": $(this).attr("label")
+        }).text($(this).attr("label"))
+    })
+     $("#playlist li").on("click", function() {
+        $("#title").attr({
+            "title": $(this).attr("title")
+        }).text($(this).attr("title"))
+    })
+    $("#video-player").attr({
+        "src": $("#playlist li").eq(0).attr("movieurl"),
+        "poster": $("#playlist li").eq(0).attr("moviesposter"),
+        "data-description": $("#playlist li").eq(0).attr("data-description"),
+        "title": $("#playlist li").eq(0).attr("title")    
+    })
+})
+
+// GA script
+document.addEventListener('DOMContentLoaded', init, false)
+var videoId = document.getElementById('video-player');
+var videoTitle = $('#videoplay').click(function () {
+  $(this).data('description');
+  console.log($(this).attr('data-description'));
+});
+console.log(videoTitle);
+
+function init() {
+  videoId.addEventListener('ended', videoEnd, false)
+  videoId.addEventListener('timeupdate', videoTimeUpdate, false)
+  videoId.addEventListener('play', videoPlay, false)
+  videoId.addEventListener('pause', videoPause, false)
+}
+
+function setKeyFrames(duration) {
+  var quarter = (duration / 4).toFixed(1)
+  sessionStorage.setItem('one', quarter)
+  sessionStorage.setItem('two', (quarter * 2).toFixed(1))
+  sessionStorage.setItem('three', (quarter * 3).toFixed(1))
+}
+
+function videoTimeUpdate() {
+  var curTime = videoId.currentTime.toFixed(1);
+  var videoTitle = $(this).attr('data-description');
+  switch (curTime) {
+  case sessionStorage.getItem('one'):
+    ga('send', 'event', 'video', '25% video played', videoTitle)
+    sessionStorage.setItem('one', null)
+  case sessionStorage.getItem('two'):
+    ga('send', 'event', 'video', '50% video played', videoTitle)
+    sessionStorage.setItem('two', null)
+  case sessionStorage.getItem('three'):
+    ga('send', 'event', 'video', '75% video played', videoTitle)
+    sessionStorage.setItem('three', null)
+  }
+}
+
+function videoEnd() {
+  ga('send', 'event', 'video', '100% video played', $(this).attr('data-description'))
+}
+
+function videoPlay() {
+  ga('send', 'event', 'video', 'video played', $(this).attr('data-description'))
+  setKeyFrames(this.duration)
+}
+
+function videoPause() {
+  ga('send', 'event', 'video', 'video paused', $(this).attr('data-description'))
+}
+  </script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-0000000-00', 'auto');
+      ga('send', 'pageview');
+  </script>
+</body>
+</html>
+

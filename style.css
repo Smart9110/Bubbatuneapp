@@ -1,0 +1,1023 @@
+
+body{
+		background-image:url("background.jpg");
+		font-family: "Verdana","Arial";
+		max-width:100%;
+		min-width:33.33%;
+		
+
+}
+
+
+
+div{
+		margin-top:40px;
+}
+
+/* TruQueen Header */
+h1.logo{ margin-left:350px;
+		font-size:3.5em;
+		max-width:100%;
+	
+}
+
+
+h2{
+	background-color:#cccccc;
+	font-size:1.2em;
+	padding-left:10px;
+	padding-bottom:5px;
+
+}
+
+/* Copy Right */
+
+h4{ text-align:center;
+	text-decoration: none;
+	background-color:#997300;
+	font-size:1.2em;
+	padding-top:25px;
+	padding-bottom:30px;
+	border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+	border-color:#997300;
+	border-width: .4em;
+	margin-bottom:-85px;
+	margin-right:auto;
+	wth:1422px;
+	max-width:100%;
+	
+	
+		
+	
+}
+
+h4 a{ text-decoration: none;	
+
+}
+
+
+
+h4 a:visited{	background-color:white;
+				padding: 16px 16px;
+}
+
+
+h4 a:hover{
+
+		color:white;
+		padding: 16px 16px;
+		
+}
+
+
+
+/* Header had a picture TruQueen */
+header{
+	text-align:left;
+	font-family:fantasy;
+	font-style:italic;
+	text-shadow: 3px 3px white;
+	background-color: #001a09;
+	color:white;
+	border-color:#997300;
+	padding:1px;
+	border-style:solid;
+	border-width:.4em;
+	max-width:100%;
+}
+
+
+/* Navigation Home, Contact ect */
+
+
+nav.fans{text-align:center;
+
+}
+
+ .fans a{
+    text-decoration:none;
+     list-style-type: none;
+     margin-left:20px;
+     
+}
+/* This is all parts of Nav^^^^ Home Contact ect*/
+
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+
+
+
+
+p{
+	margin-bottom:10px;
+	font-size:1.5em;
+	 vertical-align: text-top;
+
+}
+
+
+
+table1 a{text-decoration: none;
+		margin-left:50px;
+				
+}
+
+
+table1 a:hover{
+
+		background-color:#e0434d;
+			color:white;
+		
+}
+
+
+
+table1 a:visited{	background-color:#e0434d;
+				
+}
+
+
+
+table2 a{text-decoration: none;
+		margin-left:50px;
+				
+}
+
+
+table2 a:hover{
+
+		background-color:#e0434d;
+			color:white;
+		
+}
+
+
+table2 a:visited{	background-color:#e0434d;
+					
+}
+
+
+
+
+.footer{
+		text-align:center;
+		color:white;
+		margin-top:85px;
+		margin-bottom:10px;
+		margin-left:auto;
+		margin-right:auto;
+		font-size:.60em;
+		padding-top:30px;
+		padding-bottom:160px;
+}
+
+div.footer{background-color: #001a09;
+			border-color:#997300;
+			border-style:solid;
+			border-width:.7em;
+			
+
+}
+
+.footer table1{font-size:2em;
+				text-decoration: none;
+			
+				
+
+}
+
+.footer table2{font-size:2em;
+				text-decoration: none;
+
+}
+
+
+
+
+
+.footer,p2 a:visited{	background-color:white;
+				
+}
+
+
+.footer,p2 a:hover{
+
+			color:white;
+		
+}
+
+
+
+
+.link p2 a:link{
+		color: #006699;
+	text-decoration: none;
+	marginbottom: 160px; 
+	
+}
+
+
+.link p2 a:hover{
+	color:red;
+	text-decoration: underline;
+	background-color:#FFE3AA;
+}
+
+
+.link h3{ text-align:center;
+	text-decoration: none;
+	background-color:#e0434d;
+	font-size: 1.2em;
+	padding-top:25px;
+	padding-bottom:30px;
+	margin-bottom:55px;
+	margin-top:-87px;
+	margin-right:-4px;
+	margin-left:-4px;
+	
+}
+
+.link a{font-size:1.5em;
+
+}
+
+
+/* Start Page index.html*/
+.content{
+		max-width:100%;
+		height:1000px;
+		margin-right:auto;
+		margin-left:auto;
+		margin-top:auto;
+		background-color:  #001a09;
+		border-style:solid;
+		border-color:#997300;
+		border-width:.4em;
+		
+
+
+}
+
+.wrapper{
+		max-width:100%;
+		height:1100px;
+		margin-right:auto;
+		margin-left:auto;
+		background-color:#ffffff;
+		
+
+
+}
+
+
+
+p.story{font-size:1.4em;
+		position: absolute;
+    top: 400px;
+    margin-left:40px;
+    text-indent:50px;
+
+}
+/*------------ Pic of Michell on Index.page--------- */
+figure.pic1{float:right;
+	margin-top:20px;
+	marginright:30px;
+	border-style:solid;
+	border-width:3px;
+	padding-top: 2px;
+	padding-right:5px;
+	padding-left:5px;
+	padding-bottom:50px;
+	max-width:70%;
+	background-color: #997300;
+	color:white;	
+
+}
+
+figure.pic1 img{margin-top:1px;
+					float:right;
+		max-width:100%;
+		min-width:33.33%;
+		
+	
+
+}
+
+
+/*See More on Michelle Index.page */
+
+.piccaption{text-align:center;
+				font-size:1.1em;
+
+}
+
+hr{color:white;
+	width:650px;
+	margin-left:2px;
+	position:absolute;
+				top:230px;
+
+
+}
+
+
+article.mom10{position:absolute;
+				top:290px;
+		
+		
+
+}
+
+
+
+span.lady{font-size:6.5em;
+		color:white;
+		font-style:italic;
+		margin-left:20px;
+		max-width:40%;
+		
+		
+
+
+}
+
+span.ladya{font-size:4.5em;
+			color:white;
+			font-style:italic;
+			margin-left:20px;
+			max-width:40%;
+
+
+}
+
+span.ladyb{font-size:1.5em;
+			color:white;
+			max-width:40%;
+			
+
+
+}
+
+span.lady2{font-size:1.5em;
+			color:white;
+			max-width:40%;
+			
+
+
+}
+
+{color:white;
+		font-size:1em;
+		position:absolute;
+				top:525px;
+				left:70px;
+				
+
+
+
+}
+
+
+
+article.ladyd p{color:white;
+		font-size:1em;
+		position:absolute;
+				top:525px;
+				left:70px;
+		min-width:66.66%;
+		max-width:100%;
+		
+
+
+
+}
+
+
+	figure.pic3{ margin-top:20px;
+		float:left;
+		border-style:solid;
+		border-color: #33cc33;
+		padding:40px;
+		height:15em;
+		color:black;
+		background-color: #d9d9d9;
+}		
+
+
+figure.pic3 img{margin-top:50px;
+			margin-left:80px;
+		max-width:10%;
+		
+}
+
+	article3{margin-top:5px;
+		text-indent:50px;
+		font-size:1.4em;
+		word-wrap: break-word;
+		padding:40px;
+		position: absolute;
+   	 top: 243px;
+		margin-bottom:auto;
+		float:left;
+	
+
+}
+
+p.dinning{font-size:1.1em;
+		word-wrap: break-word;
+		position: absolute;
+   	 top: 473px;
+	
+
+
+}
+
+/* Michell Obama story on mobama.html*/
+
+figure.pic4{float:left;
+	margin-top:20px;
+	marginright:30px;
+	border-style:solid;
+	border-width: .1em;
+	padding-top: 2px;
+	padding-right:5px;
+	padding-left:5px;
+	padding-bottom:2px;
+	backgroundcolor: #d9d9d9;
+	color:black;
+		max-width:50%;
+		min-width:33.33%;
+		
+}
+
+.content4{
+		max-width:100%;
+		height:1250px;
+		margin-right:auto;
+		margin-left:auto;
+		margin-top:auto;
+		background-color:#d9d9d9;
+		border-style:solid;
+		border-color:#997300;
+		border-width:.4em;
+
+
+
+}
+
+
+dl.story4{
+			font-size:1em;
+			line-height: 1.8;
+			text-indent:100px;
+			word-wrap: break-word;
+	position: absolute;
+    top: 385px;
+    left:555px;
+    margin-right:65px;
+    
+  
+
+}
+
+
+dl.story4b{
+			font-size:1.2em;
+			line-height: 1.8;
+			word-wrap: break-word;
+	position: absolute;
+    top: 957px;
+    left:100px;
+    margin-right:65px;
+    
+  
+
+}
+
+span.lady5{font-size:5em;
+		color:black;
+		font-style:italic;
+		   position: absolute;
+    top: 320px;
+    left:550px;
+
+}
+
+
+
+div.story4{
+			font-size:1em;
+			line-height: 1.8;
+			text-indent:100px;
+			 margin-top:140px;
+			-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    
+  
+
+}
+
+
+div.story4b{
+			font-size:1.2em;
+			line-height: 1.8;
+			text-indent:100px;
+			-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    margin-right:65px;
+    
+  
+
+}
+
+
+
+
+
+
+
+
+
+/*--------------------------------------*/
+
+		
+
+
+
+
+/* pic of beyonce on page index.php */
+.pic2{margin-top:500px;
+		margin-left:20px;
+		float:left;
+			background-color:  #997300;
+			color:white;
+			border-style:solid;
+			padding-top: 2px;
+			padding-right:5px;
+			padding-left:5px;
+			padding-bottom:20px;
+	
+}
+
+.pic2 img{margin-top:1px;
+			margin-left:1px;
+		min-width:33.33%;
+		max-width:100%;
+		
+}
+
+
+
+article.pop{position:absolute;
+				top:718px;
+				margin-left:180px;
+
+
+}
+
+
+span.lady3{font-size:3em;
+		color:white;
+		font-style:italic;
+		margin-left:5px;
+	
+   
+		
+
+
+}
+
+
+
+
+
+span.lady3a{font-size:1.0em;
+		color:white;
+}
+
+p20.presab{color:white;
+		font-size:1em;
+		position:absolute;
+				top:900px;
+				left:340px;
+		min-width:33.5%;
+		max-width:100%;
+		
+		
+				
+
+}
+
+
+
+
+
+
+hr.sss{color:white;
+	max-width:420px;
+	position:absolute;
+				top:150px;
+	margin-left:90px;
+
+
+
+}
+
+/*--Beyonce on bknowles.html---------------*/
+
+.pic5{margin-top:10px;
+		margin-left:20px;
+		float:left;
+			backgroundcolor: #001a09;
+			color:black;
+			word-wrap: break-word;
+			border-style:solid;
+			border-width:.1em;
+			padding-top: 5px;
+			padding-right:5px;
+			padding-left:5px;
+			padding-bottom:5px;
+		min-width:33.33%;
+		max-width:100%;
+		
+	
+}
+
+.content2{
+		max-width:100%;
+		height:1150px;
+		margin-right:auto;
+		margin-left:auto;
+		margin-top:auto;
+		background-color:#d9d9d9;
+		border-style:solid;
+		border-color:#997300;
+		border-width:.4em;
+
+
+
+}
+
+article,div .story6{
+		
+		margin-top:185px;
+		
+
+
+}
+
+
+
+span.lady4{font-size:5em;
+		color:black;
+			position: absolute;
+    	top: 290px;
+    	left:500px;
+		font-style:italic;
+			line-height: 1.8;
+
+
+}
+
+dl.story5{textndent:60px;
+			font-size:1.2em;
+			position: absolute;
+    	top: 920px;
+   		left:660px;
+			word-wrap: break-word;
+		line-height: 1.8;
+  
+
+}
+
+dl.story7{text-indent:100px;
+			font-size:1em;
+			line-height: 1.8;
+			text-align:left;
+			margin-right:75px;
+			word-wrap: break-word;
+	position: absolute;
+    top: 1040px;
+    left:90px;
+   
+	
+  
+
+}
+
+
+
+div.story6{-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    line-height:35px;
+    margin-top:110px;
+
+}
+
+
+
+
+/*-------------------------------------*/
+
+
+
+/*---------All Things on Contact.html----------------*/
+
+.comments{position:absolute;
+				top:1000px;
+				right:100px;
+
+
+}
+
+p.contact{color:black;
+		font-size:1.2em;
+		
+
+}
+
+p.max{color:black;
+		font-size:1em;
+		position:absolute;
+				top:170px;
+				right:100px;
+				
+
+		
+
+}
+
+
+.content5{
+		max-width:100%;
+		height:1550px;
+		margin-right:auto;
+		margin-left:auto;
+		margin-top:auto;
+		background-color:#d9d9d9;
+		border-style:solid;
+		border-color:#997300;
+		border-width:.4em;
+
+}
+
+
+div.contact{-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    line-height:35px;
+    margin-top:110px;
+
+
+
+}
+
+
+
+/*------------------------------------------------*/
+
+
+/*---------All Things on About.html-----------------*/
+
+
+
+.content6{
+		max-width:100%;
+		height:1470px;
+		margin-right:auto;
+		margin-left:auto;
+		margin-top:auto;
+		background-color:#d9d9d9;
+		border-style:solid;
+		border-color:#997300;
+		border-width:.4em;
+
+
+
+}
+
+
+
+section.a1{margin-top:90px;
+			margin-right:50px;
+				margin-left:50px;
+
+}
+
+article,p1.aa{text-indent:30px;
+				font-size:1.2em;
+				word-wrap: break-word;
+				line-height: 1.8;
+}
+
+article,p2.ab{text-indent:30px;
+				font-size:1.2em;
+				word-wrap: break-word;
+					line-height: 1.8;
+					margin-top:10px;
+}
+
+article,p3.ac{text-indent:30px;
+				font-size:1.2em;
+				word-wrap: break-word;
+				line-height: 1.8;
+}
+
+p6.about{margin-left:600px;
+			font-size:1.9em;
+
+}
+
+section,p6 .about{margin-top:10px;
+			
+
+}
+
+div.aa{-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    
+
+
+
+}
+
+div.ab{-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    
+}
+
+div.ac{-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    
+
+
+
+}
+
+
+/*----------BackLinks----------------------*/
+
+
+div.backlinks{display:inline-block;
+				margin-top:40px;
+				margin-right:20px;
+				font-size:1em;
+				min-width:16.66%;
+
+	
+	
+	}
+	
+	
+	
+	
+	
+	#modelbacklinks{text-align:center;
+						margin-top:140px;
+				
+    
+	
+	
+	}
+
+
+div.backlinks a{
+				border-style:solid;
+				border-width:4px;
+				padding:5%;
+				background-color:lightgray;
+				box-shadow: 10px 10px 5px grey;
+	
+	}
+	
+	
+
+
+
+/*--------END---------------------*/
+
+
+/*------------CopyRight.html-----------*/
+
+
+.content3{
+		max-width:100%;
+		height:1800px;
+		margin-right:auto;
+		margin-left:auto;
+		margin-top:auto;
+		background-color:#d9d9d9;
+		border-style:solid;
+		border-color:#997300;
+		border-width:.4em;
+		
+
+
+
+}
+
+p7{font-size:1.9em;
+	margin-top:50px;
+	margin-left:540px;
+
+}
+
+section,p8{font-size:1.2em;
+	margin-left:30px;
+	margin-right:30px;
+	word-wrap: break-word;
+}
+
+
+/*------------Resize The Screen------------*/
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media(max-width: 700px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+@media(min-width: 700px max-width: 960px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+       
+        
+        
+    }
+     
+}
+
+
+@media screen and not (device-aspect-ratio:4/3) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+@media screen and (device-aspect-ratio:16/9), screen and (device=aspect-ratio:16/10  ) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+
+@media only screen and (max-width: 960px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+details{
+			padding-left:20%;
+			padding-right:20%;
+
+
+
+}
+
+{
+	float:right;
+	
+
+}
+
